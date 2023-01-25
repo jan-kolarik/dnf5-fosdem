@@ -8,10 +8,10 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="plugin/highlight/github.css">
 	</head>
 	<body>
 		<div class="reveal">
@@ -95,6 +95,71 @@
                                         <li>Separation of system state from history DB and module state</li>
                                         <li>Autocomplete build in</li>
                                     </ul>
+                                </section>
+
+                                <section>
+                                    <section>
+                                        <h2>Live DEMO</h2>
+                                    </section>
+
+                                    <section data-auto-animate>
+                                        <h4>CLI DEMO</h4>
+                                        <div style="display: flex;">
+                                            <div style="flex: 50%;">
+                                                <p>DNF</p>
+                                            </div>
+                                            <div style="flex: 50%;">
+                                                <p>DNF5</p>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; height: 490px; overflow: hidden;">
+                                            <div style="flex: 50%; overflow: hidden;">
+                                                <iframe src="http://localhost:6125" frameBorder="0" scrolling="no" style="max-width: 104%; width: 104%; height: 100%;"></iframe>
+                                            </div>
+                                            <div style="flex: 50%; overflow: hidden;">
+                                                <iframe src="http://localhost:6126" frameBorder="0" scrolling="no" style="max-width: 104%; width: 104%; height: 100%;"></iframe>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <section data-auto-animate>
+                                        <h4>API DEMO</h4>
+                                        <pre style="font-size: 18px;">
+                                            <code class="hljs language-python" data-trim data-line-numbers="|1-4|6-11|13-16|18|">
+    from libdnf5 import *
+
+    my_base = base.Base()
+    history = transaction.TransactionHistory(my_base)
+
+    ts_cond = lambda ts: \
+        ts.get_state() == transaction.TransactionState_OK
+
+    pkg_cond = lambda pkg: \
+        pkg.get_action() == transaction.TransactionItemAction_INSTALL and \
+        pkg.get_repoid() == 'updates'
+
+    pkgs = []
+    for ts in filter(ts_cond, history.list_all_transactions()):
+        for pkg in filter(pkg_cond, ts.get_packages()):
+            pkgs.append(pkg.to_string())
+
+    print(*sorted(pkgs), sep='\n')
+                                            </code>
+                                        </pre>
+                                        <iframe src="http://localhost:6127" frameBorder="0" scrolling="no" style="max-width: 104%; width: 104%; height: 100%;"></iframe>
+                                    </section>
+
+                                    <section data-auto-animate>
+                                        <h4>Interactive console</h4>
+                                        <div style="height: 600px;">
+                                            <iframe src="http://localhost:6128" frameBorder="0" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+                                        </div>
+                                    </section>
+
+                                    <section data-auto-animate>
+                                        <h4>Deploying a simple DNF5 plugin</h4>
+                                        <p>TODO</p>
+                                    </section>
                                 </section>
 			</div>
 		</div>
