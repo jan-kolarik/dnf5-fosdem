@@ -20,7 +20,82 @@
 				  <h2>DNF5</h2>
 				  <h3>The new era in RPM software management</h3>
 				</section>
-				<section>Slide 2</section>
+
+                                <section>
+                                    <h3>Introduction</h3>
+                                    <ol>
+                                        <li>Technical part - Aleš Matěj</li>
+                                        <li>Community part - Nicola Sella</li>
+                                        <li>Demo - Jan Kolárik</li>
+                                    </ol>
+                                </section>
+
+                                <section>
+                                    <h3>What is a package manager?</h3>
+                                    <ul>
+                                        <li>Something like a free command line app-store (backend)</li>
+                                        <li>It installs, upgrades and removes packages, handles metadata, resolves dependencies…)</li>
+                                        <li>Examples: DNF, microdnf, YUM, APT, PACMAN </li>
+                                        <li>(vs. dpkg, rpm)</li>
+                                    </ul>
+                                </section>
+
+                                <section>
+                                    TODO(amatej): diagram
+                                </section>
+                                <section>
+                                    TODO(amatej): diagram
+                                </section>
+                                <section>
+                                    TODO(amatej): diagram
+                                </section>
+
+                                <section>
+                                    <img data-src="cat_meme.jpg">
+                                </section>
+
+                                <section style="text-align: left;">
+                                    <h4>Basically full rewrite: API not compatible</h4>
+                                    <ul>
+                                        <li>API is safer and unified</li>
+                                        <li>SWIG bindings for: <b>Python</b>, Perl, Ruby, <span style="opacity: 20%;">Go</span></li>
+                                    </ul>
+                                    <br><br>
+                                    <h4>DNF5 CLI commands are mostly the same</h4>
+                                    <ul>
+                                        <li>DNF CI tests are the same for DNF5</li>
+                                        <li>Outputs of commands did change</li>
+                                    </ul>
+                                </section>
+
+                                <section style="text-align: left;">
+                                    <h4>Performance</h4>
+                                    <ul>
+                                        <li>Repos download and loading at the same time (also no filelists)</li>
+                                        <li>Faster repoquery</li>
+                                    </ul>
+                                    <br><br>
+                                    <h4>Fewer dependencies</h4>
+                                    <ul>
+                                        <li>No Python required</li>
+                                    </ul>
+                                    <br><br>
+                                    <h4>DNF5 daemon</h4>
+                                    <ul>
+                                        <li>Same functionality as dnf5</li>
+                                    </ul>
+                                </section>
+
+                                <section>
+                                    <h4>List of additional DNF5 improvements:</h4>
+                                    <ul>
+                                        <li>Configurable aliases</li>
+                                        <li>Fully integrated Modularity in LIBDNF5 workflows</li>
+                                        <li>Shared configurations</li>
+                                        <li>Separation of system state from history DB and module state</li>
+                                        <li>Autocomplete build in</li>
+                                    </ul>
+                                </section>
 			</div>
 		</div>
 
