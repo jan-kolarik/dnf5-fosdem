@@ -10,6 +10,8 @@
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/white.css">
 
+                <link rel="stylesheet" href="diagram.css">
+
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/github.css">
 	</head>
@@ -40,15 +42,133 @@
                                     </ul>
                                 </section>
 
-                                <section>
-                                    TODO(amatej): diagram
+                                <section data-auto-animate style="padding: 100px;">
+                                    <div id="libdnf" data-id="box">
+                                        <div style="float:left; width: 40%;">
+                                            <div id="hawkey" data-id="box">hawkey</div>
+                                            <div id="python-hawkey" data-id="box">python-hawkey</div>
+                                        </div>
+
+                                        <div style="float: left; width: 20%; text-align:center; ">
+                                            <span style="">LIBDNF</span>
+                                        </div>
+                                        <div data-id="box" style="float:left; width: 40%; height: 200px;">
+                                            <div id="libhif" >libhif</div>
+                                        </div>
+
+                                    </div>
+                                    <div id="plugins-libhif" class="plugins" data-id="box">Plugins</div>
+                                    <div class="clearfix"></div>
+
+                                    <div id="dnf" data-id="box">dnf</div>
+                                    <div id="plugins-dnf" class="plugins" data-id="box">Plugins</div>
+                                    <div id="microdnf" data-id="box">microdnf</div>
+                                    <div id="packagekit" data-id="box">PackageKit</div>
+                                    <svg style="position: fixed; top:-100px; left:-100px;" width="1000" height="1000" >
+                                        <-- hawkey--python-hawkey -->
+                                        <line x1="350" y1="320" x2="350" y2="350" style="stroke:#e59728;stroke-width:3" />
+                                        <-- dnf--python-hawkey -->
+                                        <line x1="350" y1="470" x2="350" y2="560" style="stroke:#a07cbc;stroke-width:3" />
+                                        <-- dnf--plugins -->
+                                        <line x1="122" y1="590" x2="175" y2="590" style="stroke:#79db32;stroke-width:3" />
+                                        <-- libhif--plugins -->
+                                        <line x1="825" y1="362" x2="925" y2="362" style="stroke:#79db32;stroke-width:3" />
+                                        <-- microdnf--hawkey -->
+                                        <line x1="455" y1="290" x2="550" y2="560" style="stroke:#a07cbc;stroke-width:3" />
+                                        <-- microdnf--libhif -->
+                                        <line x1="750" y1="470" x2="550" y2="560" style="stroke:#a07cbc;stroke-width:3" />
+                                        <-- packagekit--hawkey -->
+                                        <line x1="455" y1="290" x2="750" y2="560" style="stroke:#a07cbc;stroke-width:3" />
+                                        <-- packagekit--libhif -->
+                                        <line x1="750" y1="470" x2="750" y2="560" style="stroke:#a07cbc;stroke-width:3" />
+                                    </svg>
+                                    <div id="dnf5-intro" style="opacity:0;">
+                                        <h1 style="color: black;">DNF5</h1>
+                                    </div>
                                 </section>
-                                <section>
-                                    TODO(amatej): diagram
+
+                                <section data-auto-animate style="padding: 100px;">
+                                    <div id="libdnf" data-id="box">
+                                        <div style="float:left; width: 40%;">
+                                            <div id="hawkey" data-id="box">hawkey</div>
+                                            <div id="python-hawkey" data-id="box">python-hawkey</div>
+                                        </div>
+
+                                        <div style="float: left; width: 20%; text-align:center; ">
+                                            <span style="">LIBDNF</span>
+                                        </div>
+                                        <div data-id="box" style="float:left; width: 40%; height: 200px;">
+                                            <div id="libhif" >libhif</div>
+                                        </div>
+
+                                    </div>
+                                    <div id="plugins-libhif" class="plugins" data-id="box">Plugins</div>
+                                    <div class="clearfix"></div>
+
+                                    <div id="dnf" data-id="box">dnf</div>
+                                    <div id="plugins-dnf" class="plugins" data-id="box">Plugins</div>
+                                    <div id="microdnf" data-id="box">microdnf</div>
+                                    <div id="packagekit" data-id="box" >PackageKit</div>
+                                    <svg style="position: fixed; top:-100px; left:-100px;" width="1000" height="1000" >
+                                        <-- hawkey--python-hawkey -->
+                                        <line x1="350" y1="320" x2="350" y2="350" style="stroke:#e59728;stroke-width:3" />
+                                        <-- dnf--python-hawkey -->
+                                        <line x1="350" y1="470" x2="350" y2="560" style="stroke:#a07cbc;stroke-width:3" />
+                                        <-- dnf--plugins -->
+                                        <line x1="122" y1="590" x2="175" y2="590" style="stroke:#79db32;stroke-width:3" />
+                                        <-- libhif--plugins -->
+                                        <line x1="825" y1="362" x2="925" y2="362" style="stroke:#79db32;stroke-width:3" />
+                                        <-- microdnf--hawkey -->
+                                        <line x1="455" y1="290" x2="550" y2="560" style="stroke:#a07cbc;stroke-width:3" />
+                                        <-- microdnf--libhif -->
+                                        <line x1="750" y1="470" x2="550" y2="560" style="stroke:#a07cbc;stroke-width:3" />
+                                        <-- packagekit--hawkey -->
+                                        <line x1="455" y1="290" x2="750" y2="560" style="stroke:#a07cbc;stroke-width:3" />
+                                        <-- packagekit--libhif -->
+                                        <line x1="750" y1="470" x2="750" y2="560" style="stroke:#a07cbc;stroke-width:3" />
+                                    </svg>
+                                    <div id="dnf5-intro" style="opacity:90%;">
+                                        <h1 style="color: black;">DNF5</h1>
+                                    </div>
                                 </section>
-                                <section>
-                                    TODO(amatej): diagram
+
+                                <section data-auto-animate style="padding: 100px;">
+                                    <div id="libdnf" data-id="box">
+                                        <div style="float:left; width: 40%;">
+                                            <div id="libdnf" data-id="box" style="opacity:0%;">hawkey</div>
+                                            <div id="python-hawkey" data-id="box" style="opacity:0%;">python-hawkey</div>
+                                        </div>
+
+                                        <div style="float: left; width: 20%; padding: 100px 0 0 0;">
+                                            <span style="">LIBDNF5</span>
+                                        </div>
+                                        <div data-id="box" style="float:left; width: 40%; height: 100%; opacity:0;">
+                                            <div id="libhif" >libhif</div>
+                                        </div>
+
+                                    </div>
+                                    <div id="plugins-libhif" class="plugins" data-id="box">Plugins</div>
+                                    <div class="clearfix"></div>
+
+                                    <div id="dnf" data-id="box">dnf5</div>
+                                    <div id="plugins-dnf" class="plugins" data-id="box">Plugins</div>
+                                    <div id="microdnf" data-id="box" style="opacity:0;">microdnf</div>
+                                    <div id="packagekit" data-id="box">dnf5 daemon</div>
+                                    <svg style="position: fixed; top:-100px; left:-100px;" width="1000" height="1000" >
+                                        <-- dnf--libdnf5 -->
+                                        <line x1="350" y1="495" x2="350" y2="550" style="stroke:#a07cbc;stroke-width:3" />
+                                        <-- libdnf5--plugins -->
+                                        <line x1="880" y1="362" x2="925" y2="362" style="stroke:#79db32;stroke-width:3" />
+                                        <-- dnf5--plugins -->
+                                        <line x1="122" y1="590" x2="175" y2="590" style="stroke:#79db32;stroke-width:3" />
+                                        <-- deamon--libhif -->
+                                        <line x1="750" y1="495" x2="750" y2="550" style="stroke:#a07cbc;stroke-width:3" />
+                                    </svg>
+                                    <div id="dnf5-intro" style="opacity:0;">
+                                        <h1 style="color: black;">DNF5</h1>
+                                    </div>
                                 </section>
+
 
                                 <section>
                                     <img data-src="cat_meme.jpg">
