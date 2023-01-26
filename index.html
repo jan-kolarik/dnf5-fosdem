@@ -123,27 +123,58 @@
                                     </section>
 
                                     <section data-auto-animate>
-                                        <h4>API DEMO</h4>
-                                        <pre style="font-size: 18px;">
+                                        <h4>API DEMO 1</h4>
+                                        <pre style="font-size: 20px; width: 100%; max-height: 474px; height: 474px;">
                                             <code class="hljs language-python" data-trim data-line-numbers="|1-4|6-11|13-16|18|">
-    from libdnf5 import *
+from libdnf5 import *
 
-    my_base = base.Base()
-    history = transaction.TransactionHistory(my_base)
+my_base = base.Base()
+history = transaction.TransactionHistory(my_base)
 
-    ts_cond = lambda ts: \
-        ts.get_state() == transaction.TransactionState_OK
+ts_cond = lambda ts: \
+    ts.get_state() == transaction.TransactionState_OK
 
-    pkg_cond = lambda pkg: \
-        pkg.get_action() == transaction.TransactionItemAction_INSTALL and \
-        pkg.get_repoid() == 'updates'
+pkg_cond = lambda pkg: \
+    pkg.get_action() == transaction.TransactionItemAction_INSTALL and \
+    pkg.get_repoid() == 'updates'
 
-    pkgs = []
-    for ts in filter(ts_cond, history.list_all_transactions()):
-        for pkg in filter(pkg_cond, ts.get_packages()):
-            pkgs.append(pkg.to_string())
+pkgs = []
+for ts in filter(ts_cond, history.list_all_transactions()):
+    for pkg in filter(pkg_cond, ts.get_packages()):
+        pkgs.append(pkg.to_string())
 
-    print(*sorted(pkgs), sep='\n')
+print(*sorted(pkgs), sep='\n')
+                                            </code>
+                                        </pre>
+                                        <iframe src="http://localhost:6127" frameBorder="0" scrolling="no" style="max-width: 104%; width: 104%; height: 100%;"></iframe>
+                                    </section>
+
+                                    <section data-auto-animate>
+                                        <h4>API DEMO 2</h4>
+                                        <pre style="font-size: 18px; width: 100%; max-height: 494px; height: 494px;">
+                                            <code class="hljs language-python" data-trim data-line-numbers="|3-4|6-8|10-12|14-17|19-21|">
+from libdnf5 import *
+
+my_base = base.Base()
+my_base.setup()
+
+repo_sack = my_base.get_repo_sack()
+repo_sack.create_repos_from_system_configuration()
+repo_sack.update_and_load_enabled_repos(False)
+
+goal = base.Goal(my_base)
+goal.add_rpm_install("zlib")
+ts = goal.resolve()
+
+downloader = repo.PackageDownloader()
+for pkg in ts.get_transaction_packages():
+    if base.transaction.transaction_item_action_is_inbound(pkg.get_action()):
+        downloader.add(pkg.get_package(), "download")
+
+print("Download started ...")
+downloader.download(True, True)
+print("Download finished.")
+
                                             </code>
                                         </pre>
                                         <iframe src="http://localhost:6127" frameBorder="0" scrolling="no" style="max-width: 104%; width: 104%; height: 100%;"></iframe>
@@ -158,9 +189,145 @@
 
                                     <section data-auto-animate>
                                         <h4>Deploying a simple DNF5 plugin</h4>
-                                        <p>TODO</p>
+                                        <p class="fragment">What do we need?</p>
+                                        <ul class="fragment fade-up">
+                                            <li>Devel package</li>
+                                            <li>Template sources</li>
+                                            <li>Build tools (f.e. CMake)</li>
+                                        </ul>
                                     </section>
-                                </section>
+
+                                    <section data-auto-animate>
+                                        <h4>Deploying a simple DNF5 plugin</h4>
+                                        <p>How to write it?</p>
+                                        <ul class="fragment fade-up">
+                                            <li>Definition</li>
+                                            <li>Implementation</li>
+                                            <li>Adapter A.K.A. boilerplate</li>
+                                        </ul>
+                                    </section>
+
+                                    <section data-auto-animate>
+                                        <h4>Deploying a simple DNF5 plugin</h4>
+                                        <p>Implementation</p>
+                                        <pre style="font-size: 16px; width: 100%; max-height: 512px; height: 512px;">
+                                            <code class="hljs language-cpp" data-trim data-line-numbers="|9-12|15-17|19-21|23-25|">
+<script type="text/template">
+#include "example.hpp"
+
+#include <iostream>
+
+namespace dnf5 {
+
+using namespace libdnf::cli;
+
+void ExampleCommand::set_parent_command() {
+    auto parent_command = get_session().get_argument_parser().get_root_command();
+    auto this_command = get_argument_parser_command();
+    parent_command->register_command(this_command);
+}
+
+void ExampleCommand::set_argument_parser() {
+    get_argument_parser_command()->set_description("Example command");
+}
+
+void ExampleCommand::configure() {
+    get_context().set_quiet(true);
+}
+
+void ExampleCommand::run() {
+    std::cout << "YES !!! We did it!" << std::endl;
+}
+</script>
+                                            </code>
+                                        </pre>
+                                    </section>
+                                    <section data-auto-animate>
+                                        <h4>Deploying a simple DNF5 plugin</h4>
+                                        <p>Adapter</p>
+                                        <pre style="font-size: 16px; width: 100%; max-height: 512px; height: 512px;">
+                                            <code class="hljs language-cpp" data-trim data-line-numbers="|9-13|41-44|61-65">
+<script type="text/template">
+#include "example.hpp"
+
+#include <dnf5/iplugin.hpp>
+
+using namespace dnf5;
+
+namespace {
+
+constexpr const char * PLUGIN_NAME{"example"};
+constexpr PluginVersion PLUGIN_VERSION{.major = 1, .minor = 0, .micro = 0};
+
+constexpr const char * attrs[]{"author.name", "author.email", "description", nullptr};
+constexpr const char * attrs_value[]{"Some Excited Guy", "sponsor@dnf5.com", "example"};
+
+class ExamplePlugin : public IPlugin {
+public:
+    using IPlugin::IPlugin;
+
+    PluginAPIVersion get_api_version() const noexcept override { return PLUGIN_API_VERSION; }
+
+    const char * get_name() const noexcept override { return PLUGIN_NAME; }
+
+    PluginVersion get_version() const noexcept override { return PLUGIN_VERSION; }
+
+    const char * const * get_attributes() const noexcept override { return attrs; }
+
+    const char * get_attribute(const char * attribute) const noexcept override {
+        for (size_t i = 0; attrs[i]; ++i) {
+            if (std::strcmp(attribute, attrs[i]) == 0) {
+                return attrs_value[i];
+            }
+        }
+        return nullptr;
+    }
+
+    std::vector<std::unique_ptr<Command>> create_commands() override;
+
+    void finish() noexcept override {}
+};
+
+std::vector<std::unique_ptr<Command>> ExamplePlugin::create_commands() {
+    std::vector<std::unique_ptr<Command>> commands;
+    commands.push_back(std::make_unique<ExampleCommand>(get_context()));
+    return commands;
+}
+
+}
+
+PluginAPIVersion dnf5_plugin_get_api_version(void) {
+    return PLUGIN_API_VERSION;
+}
+
+const char * dnf5_plugin_get_name(void) {
+    return PLUGIN_NAME;
+}
+
+PluginVersion dnf5_plugin_get_version(void) {
+    return PLUGIN_VERSION;
+}
+
+IPlugin * dnf5_plugin_new_instance(ApplicationVersion version, Context & context) try {
+    return new ExamplePlugin(context);
+} catch(...) {
+    return nullptr;
+}
+
+void dnf5_plugin_delete_instance(IPlugin * plugin_object) {
+    delete plugin_object;
+}
+</script>
+                                            </code>
+                                    </section>
+                                    <section data-auto-animate>
+                                        <h4>Deploying a simple DNF5 plugin</h4>
+                                        <p>Build it & run it!</p>
+                                        <div style="height: 500px;">
+                                            <iframe src="http://localhost:6129" frameBorder="0" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+                                        </div>
+                                    </section>
+                            </section>
 			</div>
 		</div>
 
