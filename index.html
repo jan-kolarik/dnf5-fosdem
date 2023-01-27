@@ -412,9 +412,9 @@ from libdnf5 import *
 my_base = base.Base()
 my_base.setup()
 
-repo_sack = my_base.get_repo_sack()
-repo_sack.create_repos_from_system_configuration()
-repo_sack.update_and_load_enabled_repos(False)
+sack = my_base.get_repo_sack()
+sack.create_repos_from_system_configuration()
+sack.update_and_load_enabled_repos(False)
 
 goal = base.Goal(my_base)
 goal.add_rpm_install("zlib")
