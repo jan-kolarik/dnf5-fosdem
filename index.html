@@ -26,19 +26,19 @@
                                 <section>
                                     <h3>Introduction</h3>
                                     <ol>
-                                        <li>Technical part - Aleš Matěj</li>
-                                        <li>Community part - Nicola Sella</li>
-                                        <li>Demo - Jan Kolárik</li>
+                                        <li class="fragment fade-left">Technical part - Aleš Matěj</li>
+                                        <li class="fragment fade-left">Community part - Nicola Sella</li>
+                                        <li class="fragment fade-left">Demo - Jan Kolárik</li>
                                     </ol>
                                 </section>
 
                                 <section>
                                     <h3>What is a package manager?</h3>
                                     <ul>
-                                        <li>Something like a free command line app-store (backend)</li>
-                                        <li>It installs, upgrades and removes packages, handles metadata, resolves dependencies…)</li>
-                                        <li>Examples: DNF, microdnf, YUM, APT, PACMAN </li>
-                                        <li>(vs. dpkg, rpm)</li>
+                                        <li class="fragment fade-left">Something like a free command line app-store (backend)</li>
+                                        <li class="fragment fade-left">It installs, upgrades and removes packages, handles metadata, resolves dependencies…)</li>
+                                        <li class="fragment fade-left">Examples: DNF, microdnf, YUM, APT, PACMAN </li>
+                                        <li class="fragment fade-left">(vs. dpkg, rpm)</li>
                                     </ul>
                                 </section>
 
@@ -177,43 +177,43 @@
                                 <section style="text-align: left;">
                                     <h4>Basically full rewrite: API not compatible</h4>
                                     <ul>
-                                        <li>API is safer and unified</li>
-                                        <li>SWIG bindings for: <b>Python</b>, Perl, Ruby, <span style="opacity: 20%;">Go</span></li>
+                                        <li class="fragment fade-left">API is safer and unified</li>
+                                        <li class="fragment fade-left">SWIG bindings for: <span class="fragment fade-left"><b>Python, </b></span><span class="fragment fade-left">Perl, Ruby, <span style="opacity: 20%;">Go</span></span></li>
                                     </ul>
                                     <br><br>
-                                    <h4>DNF5 CLI commands are mostly the same</h4>
+                                    <h4 class="fragment fade-left">DNF5 CLI commands are mostly the same</h4>
                                     <ul>
-                                        <li>DNF CI tests are the same for DNF5</li>
-                                        <li>Outputs of commands did change</li>
+                                        <li class="fragment fade-left">DNF CI tests are the same for DNF5</li>
+                                        <li class="fragment fade-left">Outputs of commands did change</li>
                                     </ul>
                                 </section>
 
                                 <section style="text-align: left;">
-                                    <h4>Performance</h4>
-                                    <ul>
-                                        <li>Repos download and loading at the same time (also no filelists)</li>
-                                        <li>Faster repoquery</li>
-                                    </ul>
-                                    <br><br>
                                     <h4>Fewer dependencies</h4>
                                     <ul>
-                                        <li>No Python required</li>
+                                        <li class="fragment fade-left">No Python required</li>
                                     </ul>
                                     <br><br>
-                                    <h4>DNF5 daemon</h4>
+                                    <h4 class="fragment fade-left">Performance</h4>
                                     <ul>
-                                        <li>Same functionality as dnf5</li>
+                                        <li class="fragment fade-left">Repos download and loading at the same time (also no filelists)</li>
+                                        <li class="fragment fade-left">Faster repoquery</li>
+                                    </ul>
+                                    <br><br>
+                                    <h4 class="fragment fade-left">DNF5 daemon</h4>
+                                    <ul>
+                                        <li class="fragment fade-left">Same functionality as dnf5</li>
                                     </ul>
                                 </section>
 
                                 <section>
                                     <h4>List of additional DNF5 improvements:</h4>
                                     <ul>
-                                        <li>Configurable aliases</li>
-                                        <li>Fully integrated Modularity in LIBDNF5 workflows</li>
-                                        <li>Shared configurations</li>
-                                        <li>Separation of system state from history DB and module state</li>
-                                        <li>Autocomplete build in</li>
+                                        <li class="fragment fade-left">Configurable aliases</li>
+                                        <li class="fragment fade-left">Fully integrated Modularity in LIBDNF5 workflows</li>
+                                        <li class="fragment fade-left">Shared configurations</li>
+                                        <li class="fragment fade-left">Separation of system state from history DB and module state</li>
+                                        <li class="fragment fade-left">Autocomplete build in</li>
                                     </ul>
                                 </section>
 
