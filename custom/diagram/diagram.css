@@ -1,0 +1,91 @@
+#diagram-grid {
+    display: grid;
+    grid-template-areas:
+        ".            .      .      .      packagekit ."
+        ".            libdnf libdnf libdnf libdnf     ."
+        ".            libdnf libdnf libdnf libdnf     libdnf-plugins"
+        ".            libdnf libdnf libdnf libdnf     ."
+        "dnf-plugins  .      dnf    .      microdnf   .";
+    grid-template-columns: 1fr 22px;
+}
+
+#libdnf-grid {
+    display: grid;
+    grid-template-areas:
+        "libdnf-label  libdnf-label libdnf-label"
+        "hawkey        .            libhif"
+        "python-hawkey .            libhif";
+    grid-template-columns: 1fr 250px 1fr;
+}
+
+#libdnf {
+    grid-area: libdnf;
+    z-index: unset;
+    background-color: #51a2da;
+}
+
+#libdnf-label {
+    grid-area: libdnf-label;
+    text-align: left;
+    padding: 0.3em;
+}
+
+#hawkey {
+    grid-area: hawkey;
+    background-color: #e59728;
+}
+
+#python-hawkey {
+    grid-area: python-hawkey;
+    background-color: #e59728;
+}
+
+#libhif {
+    grid-area: libhif;
+    background-color: #e59728;
+    display: flex;
+    align-items: center;
+}
+
+#dnf {
+    grid-area: dnf;
+    width: 140px;
+    background-color: #a07cbc;
+}
+
+#microdnf {
+    grid-area: microdnf;
+    background-color: #a07cbc;
+}
+
+#packagekit {
+    grid-area: packagekit;
+    background-color: #a07cbc;
+}
+
+#dnf-plugins {
+    grid-area: dnf-plugins;
+    background-color: #79db32;
+}
+
+#libdnf-plugins {
+    grid-area: libdnf-plugins;
+    background-color: #79db32;
+}
+
+.diagram-block {
+    background: rgb(255, 255, 255);
+    float: left;
+    margin: 0.3em;
+    padding: 0.2em;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 16px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.diagram-line {
+    position: absolute;
+    width: 3px;
+    background-color:rgba(0, 0, 0, 0.527);
+}
