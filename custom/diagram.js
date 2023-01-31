@@ -1,4 +1,4 @@
-function adjustLine(from, to, line) {
+function prepareLine(from, to, line) {
     var fT = from.offsetTop + from.offsetHeight / 2;
     var tT = to.offsetTop + to.offsetHeight / 2;
     var fL = from.offsetLeft + from.offsetWidth / 2;
@@ -36,8 +36,33 @@ function adjustLine(from, to, line) {
 }
 
 function dnfDiagramInit() {
-    $('.diagram-line').each(function() {
-        let connections = this.id.split("_");
-        adjustLine($('#' + connections[0])[0], $('#' + connections[1])[0], this);
+    $('.dnf-diagram-line').each(function() {
+        var connections = this.id.split("_");
+        prepareLine($('#' + connections[0])[0], $('#' + connections[1])[0], this);
+    });
+}
+
+function packageManagerDiagramInit() {
+    pkgMgrLines = [];
+    
+    $('.pkg-mgr-diagram-line').each(function() {
+        var connections = this.id.split("_");
+        var dashed = this.classList.contains('pkg-mgr-diagram-dash-line');
+        var pkgMgrLine = new LeaderLine($('#' + connections[0])[0], $('#' + connections[1])[0], 
+        {
+            color: 'rgba(0, 0, 0, 0.527)', 
+            size: 8, 
+            hide: true,
+            path: dashed ? 'fluid' : 'straight',
+            dash: dashed
+        });
+        pkgMgrLines.push(pkgMgrLine);
+    });
+
+    pkgMgrLines.forEach(line => {
+        line.show('draw', {
+            duration: 1000,
+            timing: [0.58, 0, 0.42, 1]
+        });
     });
 }

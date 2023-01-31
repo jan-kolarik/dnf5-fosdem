@@ -1,0 +1,72 @@
+#pkg-manager-diagram-grid {
+    display: grid;
+    place-items: center;
+    grid-template-areas:
+        "pkg-gui-user sw-center        ."
+        ".            pkgkit           ."
+        "pkg-cli-user pkg-high-manager pkg-high-manager-list"
+        ".            pkg-low-manager  pkg-low-manager-list";
+    grid-template-columns: 3fr 4fr 2fr;
+}
+
+#pkg-gui-user {
+    grid-area: pkg-gui-user;
+    border: none;
+    box-shadow: none;
+}
+
+#pkg-cli-user {
+    grid-area: pkg-cli-user;
+    border: none;
+    box-shadow: none;
+}
+
+#sw-center {
+    grid-area: sw-center;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+}
+
+#pkgkit {
+    grid-area: pkgkit;
+    margin: 1em;
+    margin-bottom: 0;
+    background-color: #a07cbc;
+}
+
+#pkg-high-manager {
+    grid-area: pkg-high-manager;
+    background-color: #9ed7ff;
+}
+
+#pkg-low-manager {
+    grid-area: pkg-low-manager;
+    background-color: #51a2da;
+}
+
+#pkg-high-manager-list {
+    grid-area: pkg-high-manager-list;
+}
+
+#pkg-low-manager-list {
+    grid-area: pkg-low-manager-list;
+}
+
+.pkg-mgr-diagram-block {
+    background: rgb(255, 255, 255);
+    float: left;
+    margin: 0.3em;
+    padding: 0.2em;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 16px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    font-size: 80%;
+}
+
+.pkg-mgr-diagram-line {
+    position: absolute;
+    width: 3px;
+    background-color:rgba(0, 0, 0, 0.527);
+}

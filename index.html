@@ -10,11 +10,12 @@
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/white.css">
 
-        <!-- <link rel="stylesheet" href="diagram.css"> -->
-
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/github.css">
-        <link rel="stylesheet" href="custom/diagram/diagram.css">
+
+        <!-- Diagrams stylesheets -->
+        <link rel="stylesheet" href="custom/dnf-diagram.css">
+        <link rel="stylesheet" href="custom/pkg-mgr-diagram.css">
 
         <style>
             .reveal {
@@ -100,41 +101,74 @@
                                 </section>
 
                                 <section>
-                                    <h3>What is a package manager?</h3>
-                                    <ul>
-                                        <li class="fragment fade-left">Something like a free command line app-store (backend)</li>
-                                        <li class="fragment fade-left">It installs, upgrades and removes packages, handles metadata, resolves dependencies…)</li>
-                                        <li class="fragment fade-left">Examples: DNF, microdnf, YUM, APT, PACMAN </li>
-                                    </ul>
+                                    <section data-auto-animate>
+                                        <h3>What is a package manager?</h3>
+                                        <ul>
+                                            <li class="fragment fade-left">Something like a free command line app-store (backend)</li>
+                                            <li class="fragment fade-left">It installs, upgrades and removes packages, handles metadata, resolves dependencies…)</li>
+                                            <li class="fragment fade-left">Examples: DNF, microdnf, YUM, APT, PACMAN</li>
+                                        </ul>
+                                    </section>
+                                    
+                                    <section data-auto-animate data-auto-animate-duration="0.5" id="pkg-mgr-diagram-slide" data-state="pkg-mgr-diagram">
+                                        <h3>What is a package manager?</h3>
+                                        <div data-id="pkg-mgr-diagram">
+                                            <div id="pkg-manager-diagram-grid">
+                                                <div id="pkg-gui-user" class="pkg-mgr-diagram-block">
+                                                    <img data-src="img/tech/display.png" style="height: 80px; margin: 0;">
+                                                    <p style="margin: 0;">GUI user</p>
+                                                </div>
+                                                <div id="pkg-cli-user" class="pkg-mgr-diagram-block">
+                                                    <img data-src="img/tech/gnome-terminal.svg" style="height: 80px; margin: 0;">
+                                                    <p style="margin: 0;">CLI user</p>
+                                                </div>
+                                                <div id="sw-center" class="pkg-mgr-diagram-block">
+                                                    <img data-src="img/tech/gnome-software.svg" style="height: 80px; margin: 0;">
+                                                    <p style="margin: 0;">Software Center</p>
+                                                </div>
+                                                <div id="pkgkit" class="pkg-mgr-diagram-block">PackageKit</div>
+                                                <div id="pkg-high-manager" class="pkg-mgr-diagram-block">High Level Manager</div>
+                                                <div id="pkg-high-manager-list" style="font-size: 50%;">DNF, APT, pacman</div>
+                                                <div id="pkg-low-manager" class="pkg-mgr-diagram-block">Low Level Manager</div>
+                                                <div id="pkg-low-manager-list" style="font-size: 50%;">RPM, dpkg</div>
+                                            </div>
+                                            <div id="pkg-gui-user_sw-center" class="pkg-mgr-diagram-line"></div>
+                                            <div id="sw-center_pkgkit" class="pkg-mgr-diagram-line"></div>
+                                            <div id="pkgkit_pkg-high-manager" class="pkg-mgr-diagram-line"></div>
+                                            <div id="pkg-high-manager_pkg-low-manager" class="pkg-mgr-diagram-line"></div>
+                                            <div id="pkg-cli-user_pkg-high-manager" class="pkg-mgr-diagram-line"></div>
+                                            <div id="pkg-cli-user_pkg-low-manager" class="pkg-mgr-diagram-line pkg-mgr-diagram-dash-line"></div>
+                                        </div>
+                                    </section>
                                 </section>
 
                                 <section>
                                     <section data-auto-animate data-state="dnf-diagram">
                                         <div class="r-stack">
                                             <div data-id="dnf-diagram">
-                                                <div id="diagram-grid">
-                                                    <div id="libdnf" class="diagram-block">
+                                                <div id="dnf-diagram-grid">
+                                                    <div id="libdnf" class="dnf-diagram-block">
                                                         <div id="libdnf-grid">
                                                             <div id="libdnf-label"><b>LIBDNF</b></div>
-                                                            <div id="hawkey" class="diagram-block">hawkey</div>
-                                                            <div id="python-hawkey" class="diagram-block">python-hawkey</div>
-                                                            <div id="libhif" class="diagram-block">libhif</div>
+                                                            <div id="hawkey" class="dnf-diagram-block">hawkey</div>
+                                                            <div id="python-hawkey" class="dnf-diagram-block">python-hawkey</div>
+                                                            <div id="libhif" class="dnf-diagram-block">libhif</div>
                                                         </div>
                                                     </div>
-                                                    <div id="dnf-plugins" class="diagram-block">plugins</div>
-                                                    <div id="dnf" class="diagram-block">dnf</div>
-                                                    <div id="microdnf" class="diagram-block">microdnf</div>
-                                                    <div id="packagekit" class="diagram-block">PackageKit</div>
-                                                    <div id="libdnf-plugins" class="diagram-block">plugins</div>
+                                                    <div id="dnf-plugins" class="dnf-diagram-block">plugins</div>
+                                                    <div id="dnf" class="dnf-diagram-block">dnf</div>
+                                                    <div id="microdnf" class="dnf-diagram-block">microdnf</div>
+                                                    <div id="packagekit" class="dnf-diagram-block">PackageKit</div>
+                                                    <div id="libdnf-plugins" class="dnf-diagram-block">plugins</div>
                                                 </div>
-                                                <div id="dnf_dnf-plugins" class="diagram-line"></div>
-                                                <div id="dnf_python-hawkey" class="diagram-line"></div>
-                                                <div id="python-hawkey_hawkey" class="diagram-line"></div>
-                                                <div id="microdnf_hawkey" class="diagram-line"></div>
-                                                <div id="packagekit_hawkey" class="diagram-line"></div>
-                                                <div id="libhif_microdnf" class="diagram-line"></div>
-                                                <div id="libhif_packagekit" class="diagram-line"></div>
-                                                <div id="libhif_libdnf-plugins" class="diagram-line"></div>
+                                                <div id="dnf_dnf-plugins" class="dnf-diagram-line"></div>
+                                                <div id="dnf_python-hawkey" class="dnf-diagram-line"></div>
+                                                <div id="python-hawkey_hawkey" class="dnf-diagram-line"></div>
+                                                <div id="microdnf_hawkey" class="dnf-diagram-line"></div>
+                                                <div id="packagekit_hawkey" class="dnf-diagram-line"></div>
+                                                <div id="libhif_microdnf" class="dnf-diagram-line"></div>
+                                                <div id="libhif_packagekit" class="dnf-diagram-line"></div>
+                                                <div id="libhif_libdnf-plugins" class="dnf-diagram-line"></div>
                                             </div>
                                         </div>
                                     </section>
@@ -142,56 +176,56 @@
                                     <section data-auto-animate>
                                         <div class="r-stack">
                                             <div data-id="dnf-diagram" style="opacity: 0.15 !important">
-                                                <div id="diagram-grid">
-                                                    <div id="libdnf" class="diagram-block">
+                                                <div id="dnf-diagram-grid">
+                                                    <div id="libdnf" class="dnf-diagram-block">
                                                         <div id="libdnf-grid">
                                                             <div id="libdnf-label"><b>LIBDNF</b></div>
-                                                            <div id="hawkey" class="diagram-block">hawkey</div>
-                                                            <div id="python-hawkey" class="diagram-block">python-hawkey</div>
-                                                            <div id="libhif" class="diagram-block">libhif</div>
+                                                            <div id="hawkey" class="dnf-diagram-block">hawkey</div>
+                                                            <div id="python-hawkey" class="dnf-diagram-block">python-hawkey</div>
+                                                            <div id="libhif" class="dnf-diagram-block">libhif</div>
                                                         </div>
                                                     </div>
-                                                    <div id="dnf-plugins" class="diagram-block">plugins</div>
-                                                    <div id="dnf" class="diagram-block">dnf</div>
-                                                    <div id="microdnf" class="diagram-block">microdnf</div>
-                                                    <div id="packagekit" class="diagram-block">PackageKit</div>
-                                                    <div id="libdnf-plugins" class="diagram-block">plugins</div>
+                                                    <div id="dnf-plugins" class="dnf-diagram-block">plugins</div>
+                                                    <div id="dnf" class="dnf-diagram-block">dnf</div>
+                                                    <div id="microdnf" class="dnf-diagram-block">microdnf</div>
+                                                    <div id="packagekit" class="dnf-diagram-block">PackageKit</div>
+                                                    <div id="libdnf-plugins" class="dnf-diagram-block">plugins</div>
                                                 </div>
-                                                <div id="dnf_dnf-plugins" class="diagram-line"></div>
-                                                <div id="dnf_python-hawkey" class="diagram-line"></div>
-                                                <div id="python-hawkey_hawkey" class="diagram-line"></div>
-                                                <div id="microdnf_hawkey" class="diagram-line"></div>
-                                                <div id="packagekit_hawkey" class="diagram-line"></div>
-                                                <div id="libhif_microdnf" class="diagram-line"></div>
-                                                <div id="libhif_packagekit" class="diagram-line"></div>
-                                                <div id="libhif_libdnf-plugins" class="diagram-line"></div>
+                                                <div id="dnf_dnf-plugins" class="dnf-diagram-line"></div>
+                                                <div id="dnf_python-hawkey" class="dnf-diagram-line"></div>
+                                                <div id="python-hawkey_hawkey" class="dnf-diagram-line"></div>
+                                                <div id="microdnf_hawkey" class="dnf-diagram-line"></div>
+                                                <div id="packagekit_hawkey" class="dnf-diagram-line"></div>
+                                                <div id="libhif_microdnf" class="dnf-diagram-line"></div>
+                                                <div id="libhif_packagekit" class="dnf-diagram-line"></div>
+                                                <div id="libhif_libdnf-plugins" class="dnf-diagram-line"></div>
                                             </div>
                                             <h1 style="margin: auto;">DNF5</h1>
                                         </div>
                                     </section>
 
-                                    <section data-auto-animate>
+                                    <section data-auto-animate data-auto-animate-duration="0.5">
                                         <div class="r-stack">
                                             <div data-id="dnf5-diagram">
-                                                <div id="diagram-grid">
-                                                    <div data-id="libdnf-block" id="libdnf" class="diagram-block" style="z-index: 1;">
+                                                <div id="dnf-diagram-grid">
+                                                    <div data-id="libdnf-block" id="libdnf" class="dnf-diagram-block" style="z-index: 1;">
                                                         <div id="libdnf-grid">
                                                             <div id="libdnf-label" style="visibility: hidden;"><b>LIBDNF5</b></div>
-                                                            <div id="hawkey" class="diagram-block" style="visibility: hidden;">hawkey</div>
-                                                            <div id="python-hawkey" class="diagram-block" style="visibility: hidden;">python-hawkey</div>
-                                                            <div id="libhif" class="diagram-block" style="visibility: hidden;">libhif</div>
+                                                            <div id="hawkey" class="dnf-diagram-block" style="visibility: hidden;">hawkey</div>
+                                                            <div id="python-hawkey" class="dnf-diagram-block" style="visibility: hidden;">python-hawkey</div>
+                                                            <div id="libhif" class="dnf-diagram-block" style="visibility: hidden;">libhif</div>
                                                         </div>
                                                     </div>
-                                                    <div id="dnf-plugins" class="diagram-block">plugins</div>
-                                                    <div id="dnf" class="diagram-block">dnf5</div>
-                                                    <div id="microdnf" class="diagram-block">daemon</div>
-                                                    <div id="packagekit" class="diagram-block" style="visibility: hidden;">PackageKit</div>
-                                                    <div id="libdnf-plugins" class="diagram-block">plugins</div>
+                                                    <div id="dnf-plugins" class="dnf-diagram-block">plugins</div>
+                                                    <div id="dnf" class="dnf-diagram-block">dnf5</div>
+                                                    <div id="microdnf" class="dnf-diagram-block">daemon</div>
+                                                    <div id="packagekit" class="dnf-diagram-block" style="visibility: hidden;">PackageKit</div>
+                                                    <div id="libdnf-plugins" class="dnf-diagram-block">plugins</div>
                                                 </div>
-                                                <div id="dnf_dnf-plugins" class="diagram-line"></div>
-                                                <div id="libdnf_microdnf" class="diagram-line"></div>
-                                                <div id="libdnf_dnf" class="diagram-line"></div>
-                                                <div id="libdnf_libdnf-plugins" class="diagram-line"></div>
+                                                <div id="dnf_dnf-plugins" class="dnf-diagram-line"></div>
+                                                <div id="libdnf_microdnf" class="dnf-diagram-line"></div>
+                                                <div id="libdnf_dnf" class="dnf-diagram-line"></div>
+                                                <div id="libdnf_libdnf-plugins" class="dnf-diagram-line"></div>
                                             </div>
                                             <h1 style="margin: auto; z-index: 1;">LIBDNF5</h1>
                                         </div>
@@ -717,13 +751,18 @@ void dnf5_plugin_delete_instance(IPlugin * plugin_object) {
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 
+        <!-- Custom scripts -->
         <script src="custom/jquery-latest.min.js"></script>
-        <script src="custom/diagram/diagram.js"></script>
+        <script src="custom/leader-line.min.js"></script>
+        <script src="custom/diagram.js"></script>
 
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
+
+            var pkgMgrLines = [];
+
 			Reveal.initialize({
 				hash: true,
                 showSlideNumber: 'speaker',
@@ -734,6 +773,18 @@ void dnf5_plugin_delete_instance(IPlugin * plugin_object) {
             Reveal.configure({
                 pdfSeparateFragments: false
             });
+            
+            Reveal.on('slidechanged', event => {
+                if (event.currentSlide.id == 'pkg-mgr-diagram-slide') {
+                    packageManagerDiagramInit();
+                } else {
+                    pkgMgrLines.forEach(line => {
+                        line.hide('none');
+                    });
+                }
+            });
+
+            // Initialize diagrams
             Reveal.on('dnf-diagram', () => {
                 dnfDiagramInit();
             });

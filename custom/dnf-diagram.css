@@ -1,4 +1,4 @@
-#diagram-grid {
+#dnf-diagram-grid {
     display: grid;
     grid-template-areas:
         ".            .      .      .      packagekit ."
@@ -73,7 +73,7 @@
     background-color: #79db32;
 }
 
-.diagram-block {
+.dnf-diagram-block {
     background: rgb(255, 255, 255);
     float: left;
     margin: 0.3em;
@@ -84,7 +84,7 @@
     z-index: 1;
 }
 
-.diagram-line {
+.dnf-diagram-line {
     position: absolute;
     width: 3px;
     background-color:rgba(0, 0, 0, 0.527);
