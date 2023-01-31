@@ -55,7 +55,11 @@
                 filter: alpha(opacity=100);
             }
             .reveal .zindex-1 {
-                z-index: 1
+                z-index: 1;
+            }
+
+            .reveal .crop-graph {
+                margin-top: -8%;
             }
         </style>
 	</head>
@@ -298,51 +302,55 @@
                                     </section>
                                 </section>
                                 <section>
-                                    <section>
-                                        <h4>Where are we now? Looking at the past of the project</h4>
+                                    <section data-auto-animate>
+                                        <h4>Looking at the past of the projects</h4>
                                     </section>
-                                    <section>
-                                        <h4>dnf from the beginning</h4>
-                                        <img src="img/community/bimonthly_contrib.png" />
+                                    <section data-auto-animate data-auto-animate-duration="0.5" id="where-are-we-now">
+                                        <h4>Looking at the past of the projects</h4>
+                                        <div id="where-are-we-now">
+                                        <img class="crop-graph" src="img/community/bimonthly_contrib.png" />
+                                        </div>
                                     </section>
                                     <section>
                                         <h4>Very few people are doing all the work</h4>
-                                        <img src="img/community/authors_per_contributions.png" />
+                                        <img class="crop-graph" src="img/community/authors_per_contributions.png" />
                                     </section>
                                     <section>
                                         <h4>How the efforts are shifting from 2022</h4>
-                                        <img src="img/community/commits_in_2022.png" />
+                                        <img class="crop-graph" src="img/community/commits_in_2022.png" />
                                     </section>
                                 </section>
                                 <section>
                                     <section>
-                                        <h4>YUM era (2002-2012)</h4>
-                                        <img src="img/community/contributions_per_author_yum.png" />
+                                        <h4>LIBDNF (2012-today)</h4>
+                                        <img class="crop-graph" src="img/community/contributions_per_author_libdnf.png" />
                                     </section>
                                     <section>
-                                        <h4>DNF5 era (2020-tomorrow?)</h4>
-                                        <img src="img/community/contributions_per_author_dnf5.png" />
+                                        <h4>DNF5 (2020-tomorrow?)</h4>
+                                        <img class="crop-graph" src="img/community/contributions_per_author_dnf5.png" />
                                     </section>
                                     <section>
-                                        <h4>DNF era (2012-today)</h4>
-                                        <img src="img/community/contributions_per_author_dnf.png" />
+                                        <h4>DNF (2012-today)</h4>
+                                        <img class="crop-graph" src="img/community/contributions_per_author_dnf.png" />
                                     </section>
                                 </section>
                                 <section>
-                                    <section>
+                                    <section data-auto-animate>
                                         <h4>Where do we want to go? Looking at the future of our contributors</h4>
                                     </section>
-                                    <section>
-                                        <h4>Contributors, who are they?</h4>
+                                    <section data-auto-animate data-auto-animate-duration="0.5" id="where-do-we-want-to-go">
+                                        <h4>Where do we want to go? Looking at the future of our contributors</h4 >
+                                        <div data-id="where-do-we-want-to-go">
                                         <ul>
-                                            <li class="fragment fade-in" data-fragment-index="1">💻 Authors, Owners ~10% commits</li>
-                                            <li class="fragment fade-in" data-fragment-index="2">👏 Co-Authors, Paid programmers ~100 commits</li>
-                                            <li class="fragment fade-left" data-fragment-index="4"><b>🤔: The People in the Middle</b></li>
-                                            <li class="fragment fade-up" data-fragment-index="3">🧩:Beginners, one timers</li>
+                                            <li>💻 Authors, Owners ~10% commits</li>
+                                            <li class="fragment fade-in" data-fragment-index="1">👏 Co-Authors, Paid programmers ~100 commits</li>
+                                            <li class="fragment fade-left" data-fragment-index="3"><b>🤔: The People in the Middle</b></li>
+                                            <li class="fragment fade-up" data-fragment-index="2">🧩:Beginners, one timers</li>
                                         </ul>
+                                        </div>
                                     </section>
                                     <section>
-                                        <h4>DNF Contribuitons</h4>
+                                        <h4>DNF Weekly Contribuitons</h4>
                                         <table>
                                             <tr>
                                                 <th></th>
@@ -371,7 +379,7 @@
                                         </table>
                                     </section>
                                     <section>
-                                        <h4>DNF5 Contributions</h4>
+                                        <h4>DNF5 Weekly Contributions</h4>
                                         <table>
                                             <tr>
                                                 <th></th>
@@ -400,7 +408,7 @@
                                         </table>
                                     </section>
                                     <section>
-                                        <h4>LIBDNF Contributions</h4>
+                                        <h4>LIBDNF Weekly Contributions</h4>
                                         <table>
                                             <tr>
                                                 <th></th>
@@ -425,35 +433,6 @@
                                                 <td>150</td>
                                                 <td>83</td>
                                                 <td>50 </td>
-                                            </tr>
-                                        </table>
-                                    </section>
-                                    <section>
-                                        <h4>YUM Contributions</h4>
-                                        <table>
-                                            <tr>
-                                                <th></th>
-                                                <th>All (70)</th>
-                                                <th>💻 2 (2.8%)</th>
-                                                <th>👏 8 (11%)</th>
-                                            </tr>
-                                            <tr class="fragment fade-up">
-                                                <td></td>
-                                                <td>4530</td>
-                                                <td>1319</td>
-                                                <td>405</td>
-                                            </tr>
-                                            <tr class="fragment fade-up">
-                                                <td>To be in 1%</td>
-                                                <td>44</td>
-                                                <td>18</td>
-                                                <td>5</td>
-                                            </tr>
-                                            <tr class="fragment fade-up">
-                                                <td>To be in 5%</td>
-                                                <td>250</td>
-                                                <td>6</td>
-                                                <td>22 </td>
                                             </tr>
                                         </table>
                                     </section>
