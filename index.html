@@ -18,16 +18,13 @@
 
         <style>
             .reveal {
-                --r-background-color: #f5f5f5;
-                --r-heading-color: #222222;
-                --r-main-color: #333333;
+                --r-background-color: #919191;
+                --r-heading-color: #333333;
+                --r-main-color: #474747;
                 --r-link-color: #1197c7;
-            }
-            .reveal {
-                background-image: url(img/logo/DNF_logo.png);
-                background-size: 4%;
-                background-repeat: no-repeat;
-                background-position: 3% 3%;
+                --r-link-color-hover: #126a8f;
+                --r-selection-color: #474747;
+                --r-selection-background: #1197c7;
             }
             .reveal .footer {
                 position: absolute;
@@ -41,17 +38,44 @@
                 left: 42%;
                 font-size: 0.6em;
             }
+            .reveal .fosdem-logo {
+                position: absolute;
+                bottom: 87%;
+                left: 3%;
+                width: 6em;
+            }
+
+            .reveal .opaque {
+                opacity:0.4;
+                filter: alpha(opacity=60);
+            }
+            .reveal .opaque:hover {
+                opacity:1;
+                filter: alpha(opacity=100);
+            }
+            .reveal .zindex-1 {
+                z-index: 1
+            }
         </style>
 	</head>
 	<body>
 		<div class="reveal">
-            <div class='footer'>
+            <div class='footer opaque zindex-1'>
                 <p>
-                <a href="https://github.com/rpm-software-management/dnf5">@ rpm-software-management/dnf5</a>
+                    <a href="https://github.com/rpm-software-management/dnf5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg> dnf5
+                    </a>
                 </p>
-            </div>
-            <div class='mid-footer'>
                   <p>Aleš Matěj - Nicola Sella - Jan Kolárik</p>
+            </div>
+            <div class='mid-footer opaque zindex-1'>
+            </div>
+            <div class='fosdem-logo opaque zindex-1'>
+                <a href="https://fosdem.org/2023/schedule/event/dnf5/" target="_blank">
+                    <img class="logo" src="img/logo/DNF_fosdem_logo.png">
+                </a>
             </div>
 			<div class="slides">
 				<section>
