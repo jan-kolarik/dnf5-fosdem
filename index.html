@@ -61,6 +61,10 @@
             .reveal .crop-graph {
                 margin-top: -8%;
             }
+
+            .reveal table.smaller {
+                font-size: 0.5em;
+            }
         </style>
 	</head>
 	<body>
@@ -737,8 +741,75 @@ void dnf5_plugin_delete_instance(IPlugin * plugin_object) {
                                     </section>
                             </section>
                             <section>
-                                <p>Thank you for joining us!</p>
-                                <img data-src="img/end/waiting.jpg" style="width: 60%;" />
+                                <section data-auto-animate>
+                                    <h4>Thank you for joining us!</h4>
+                                    <img data-src="img/end/waiting.jpg" style="width: 60%;" />
+                                </section>
+                                <section data-auto-animate data-auto-animate-duration="0.5" id="thank-you">
+                                    <h4>Thank you for joining us!</h4>
+                                    <p>Where are we?</p>
+                                    <table class="smaller">
+                                        <tr>
+                                            <th></th>
+                                            <th>Link</th>
+                                        </tr>
+                                        <tr>
+                                            <td>GitHub Repo</td>
+                                            <td>
+                                                <a href="https://github.com/rpm-software-management/dnf5" target="_blank">
+                                                    https://github.com/rpm-software-management/dnf5
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>GitHub Issues</td>
+                                            <td>
+                                                <a href="https://github.com/rpm-software-management/dnf5/issues" target="_blank">
+                                                    https://github.com/rpm-software-management/dnf5/issues
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>GitHub discussions</td>
+                                            <td>
+                                                <a href="https://github.com/rpm-software-management/dnf5/discussions" target="_blank">
+                                                    https://github.com/rpm-software-management/dnf5/discussions
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Documentation</td>
+                                            <td>
+                                                <a href="https://dnf5.readthedocs.io/en/latest/" target="_blank">
+                                                    https://dnf5.readthedocs.io
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <p>How to try dnf5?</>
+                                    <table class="smaller">
+                                        <tr>
+                                            <th>Where</th>
+                                            <th>How</th>
+                                        </tr>
+                                        <tr>
+                                            <td> Fedora 36/37</td>
+                                            <td>
+                                                <code class="hljs language-bash">
+                                                    dnf copr enable rpmsoftwaremanagement/dnf5-unstable
+                                                </code>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fedora 38</td>
+                                            <td>
+                                                <code class="hljs language-bash">
+                                                    dnf install dnf5
+                                                </code>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </section>
                             </section>
 			</div>
 		</div>
