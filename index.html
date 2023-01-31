@@ -708,6 +708,9 @@ void dnf5_plugin_delete_instance(IPlugin * plugin_object) {
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 
+            Reveal.configure({
+                pdfSeparateFragments: false
+            });
             Reveal.on('dnf-diagram', () => {
                 dnfDiagramInit();
             });
