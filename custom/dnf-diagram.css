@@ -68,6 +68,11 @@
     background-color: #79db32;
 }
 
+#dnf5-plugins {
+    grid-area: dnf-plugins;
+    background-color: #f26e61;
+}
+
 #libdnf-plugins {
     grid-area: libdnf-plugins;
     background-color: #79db32;
