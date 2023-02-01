@@ -1,0 +1,14 @@
+.dnf-term-div {
+    border-right: 3px solid;
+    border-image:
+        linear-gradient(
+            to bottom, 
+            transparent 10%, 
+            #126a8f 50%, 
+            transparent 100%
+        ) 1 100%;
+}
+
+.reveal pre code {
+    max-height: 500px !important;
+}

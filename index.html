@@ -13,7 +13,8 @@
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/github.css">
 
-        <!-- Diagrams stylesheets -->
+        <!-- Custom stylesheets -->
+        <link rel="stylesheet" href="custom/cli.css">
         <link rel="stylesheet" href="custom/dnf-diagram.css">
         <link rel="stylesheet" href="custom/pkg-mgr-diagram.css">
 
@@ -163,20 +164,22 @@
                                                             <div id="libhif" class="dnf-diagram-block">libhif</div>
                                                         </div>
                                                     </div>
+                                                    <div id="dnf-exts" class="dnf-diagram-block">exts</div>
                                                     <div id="dnf-plugins" class="dnf-diagram-block">plugins</div>
                                                     <div id="dnf" class="dnf-diagram-block">dnf</div>
                                                     <div id="microdnf" class="dnf-diagram-block">microdnf</div>
                                                     <div id="packagekit" class="dnf-diagram-block">PackageKit</div>
-                                                    <div id="libdnf-plugins" class="dnf-diagram-block">plugins</div>
+                                                    <div id="libdnf-exts" class="dnf-diagram-block">exts</div>
                                                 </div>
                                                 <div id="dnf_dnf-plugins" class="dnf-diagram-line"></div>
+                                                <div id="dnf_dnf-exts" class="dnf-diagram-line"></div>
                                                 <div id="dnf_python-hawkey" class="dnf-diagram-line"></div>
                                                 <div id="python-hawkey_hawkey" class="dnf-diagram-line"></div>
                                                 <div id="microdnf_hawkey" class="dnf-diagram-line"></div>
                                                 <div id="packagekit_hawkey" class="dnf-diagram-line"></div>
                                                 <div id="libhif_microdnf" class="dnf-diagram-line"></div>
                                                 <div id="libhif_packagekit" class="dnf-diagram-line"></div>
-                                                <div id="libhif_libdnf-plugins" class="dnf-diagram-line"></div>
+                                                <div id="libhif_libdnf-exts" class="dnf-diagram-line"></div>
                                             </div>
                                         </div>
                                     </section>
@@ -193,20 +196,22 @@
                                                             <div id="libhif" class="dnf-diagram-block">libhif</div>
                                                         </div>
                                                     </div>
+                                                    <div id="dnf-exts" class="dnf-diagram-block">exts</div>
                                                     <div id="dnf-plugins" class="dnf-diagram-block">plugins</div>
                                                     <div id="dnf" class="dnf-diagram-block">dnf</div>
                                                     <div id="microdnf" class="dnf-diagram-block">microdnf</div>
                                                     <div id="packagekit" class="dnf-diagram-block">PackageKit</div>
-                                                    <div id="libdnf-plugins" class="dnf-diagram-block">plugins</div>
+                                                    <div id="libdnf-exts" class="dnf-diagram-block">exts</div>
                                                 </div>
                                                 <div id="dnf_dnf-plugins" class="dnf-diagram-line"></div>
+                                                <div id="dnf_dnf-exts" class="dnf-diagram-line"></div>
                                                 <div id="dnf_python-hawkey" class="dnf-diagram-line"></div>
                                                 <div id="python-hawkey_hawkey" class="dnf-diagram-line"></div>
                                                 <div id="microdnf_hawkey" class="dnf-diagram-line"></div>
                                                 <div id="packagekit_hawkey" class="dnf-diagram-line"></div>
                                                 <div id="libhif_microdnf" class="dnf-diagram-line"></div>
                                                 <div id="libhif_packagekit" class="dnf-diagram-line"></div>
-                                                <div id="libhif_libdnf-plugins" class="dnf-diagram-line"></div>
+                                                <div id="libhif_libdnf-exts" class="dnf-diagram-line"></div>
                                             </div>
                                             <h1 style="margin: auto;">DNF5</h1>
                                         </div>
@@ -224,16 +229,17 @@
                                                             <div id="libhif" class="dnf-diagram-block" style="visibility: hidden;">libhif</div>
                                                         </div>
                                                     </div>
-                                                    <div id="dnf5-plugins" class="dnf-diagram-block">plugins</div>
+                                                    <div id="dnf-exts" class="dnf-diagram-block" style="visibility: hidden;">exts</div>
+                                                    <div id="dnf-plugins" class="dnf-diagram-block">plugins</div>
                                                     <div id="dnf" class="dnf-diagram-block">dnf5</div>
                                                     <div id="microdnf" class="dnf-diagram-block">daemon</div>
                                                     <div id="packagekit" class="dnf-diagram-block" style="visibility: hidden;">PackageKit</div>
-                                                    <div id="libdnf-plugins" class="dnf-diagram-block">plugins</div>
+                                                    <div id="libdnf-exts" class="dnf-diagram-block">exts</div>
                                                 </div>
                                                 <div id="dnf_dnf-plugins" class="dnf-diagram-line"></div>
                                                 <div id="libdnf_microdnf" class="dnf-diagram-line"></div>
                                                 <div id="libdnf_dnf" class="dnf-diagram-line"></div>
-                                                <div id="libdnf_libdnf-plugins" class="dnf-diagram-line"></div>
+                                                <div id="libdnf_libdnf-exts" class="dnf-diagram-line"></div>
                                             </div>
                                             <h1 style="margin: auto; z-index: 1;">LIBDNF5</h1>
                                         </div>
@@ -525,78 +531,79 @@
                                                 <p>DNF5</p>
                                             </div>
                                         </div>
-                                        <div style="display: flex; height: 490px; overflow: hidden;">
-                                            <div style="flex: 50%; overflow: hidden;">
-                                                <iframe src="http://localhost:6125" style="max-width: 104%; width: 104%; height: 100%;"></iframe>
+                                        <div style="display: flex; height: 420px; overflow: hidden;">
+                                            <div class="dnf-term-div" style="flex: 50%; overflow: hidden;">
+                                                <iframe data-id="term1" src="http://localhost:6125" style="max-width: 104%; width: 104%; max-height: 100%; height: 100%;"></iframe>
                                             </div>
                                             <div style="flex: 50%; overflow: hidden;">
-                                                <iframe src="http://localhost:6126" style="max-width: 104%; width: 104%; height: 100%;"></iframe>
+                                                <iframe data-id="term2" src="http://localhost:6125" style="max-width: 104%; width: 104%; max-height: 100%; height: 100%;"></iframe>
                                             </div>
                                         </div>
                                     </section>
 
                                     <section data-auto-animate>
                                         <h4>API DEMO 1</h4>
-                                        <pre style="font-size: 20px; width: 100%; max-height: 474px; height: 474px;">
-                                            <code class="hljs language-python" data-trim data-line-numbers="|1-4|6-11|13-16|18|">
-from libdnf5 import *
+                                        <div class="r-stack">
+                                            <pre style="font-size: 18px; width: 68%;">
+                                                <code class="hljs language-python" data-trim data-line-numbers="|1-4|6-7|9-11|13-15|17-19">
+import libdnf5 as dnf
 
-my_base = base.Base()
-history = transaction.TransactionHistory(my_base)
+base = dnf.base.Base()
+base.setup()
 
-ts_cond = lambda ts: \
-    ts.get_state() == transaction.TransactionState_OK
+for release in ['35', '36', '37']:
+    base.get_vars().set('releasever', release)
 
-pkg_cond = lambda pkg: \
-    pkg.get_action() == transaction.TransactionItemAction_INSTALL and \
-    pkg.get_repoid() == 'updates'
+    sack = base.get_repo_sack()
+    sack.create_repos_from_system_configuration()
+    sack.update_and_load_enabled_repos(False)
 
-pkgs = []
-for ts in filter(ts_cond, history.list_all_transactions()):
-    for pkg in filter(pkg_cond, ts.get_packages()):
-        pkgs.append(pkg.to_string())
+    query = dnf.rpm.PackageQuery(base)
+    query.filter_name(["kernel"])
+    query.filter_latest_evr()
 
-print(*sorted(pkgs), sep='\n')
-                                            </code>
-                                        </pre>
-                                        <iframe src="http://localhost:6127" style="max-width: 100%; width: 100%; height: 80px;"></iframe>
+    found = next(iter(query), None)
+    pkg_name = found.get_nevra() if found else "N/A"
+    print(f'{release}: {pkg_name}')
+                                                </code>
+                                            </pre>
+                                            <div style="max-width: 68%; width: 68%; max-height: 100%; height: 100%; overflow: hidden;">
+                                                <iframe class="fragment fade-up" data-id="term3" src="http://localhost:6126/" style="max-width: 104%; width: 104%; max-height: 100%; height: 100%;"></iframe>
+                                            </div>
+                                        </div>
                                     </section>
 
                                     <section data-auto-animate>
                                         <h4>API DEMO 2</h4>
-                                        <pre style="font-size: 18px; width: 100%; max-height: 494px; height: 494px;">
-                                            <code class="hljs language-python" data-trim data-line-numbers="|3-4|6-8|10-12|14-17|19-21|">
-from libdnf5 import *
+                                        <div class="r-stack">
+                                            <pre style="font-size: 18px; width: 75%;">
+                                                <code class="hljs language-python" data-trim data-line-numbers="|1-8|10-12|14-18|20-21">
+import libdnf5 as dnf
 
-my_base = base.Base()
-my_base.setup()
+base = dnf.base.Base()
+base.setup()
 
-sack = my_base.get_repo_sack()
+sack = base.get_repo_sack()
 sack.create_repos_from_system_configuration()
 sack.update_and_load_enabled_repos(False)
 
-goal = base.Goal(my_base)
+goal = dnf.base.Goal(base)
 goal.add_rpm_install("zlib")
 ts = goal.resolve()
 
-downloader = repo.PackageDownloader()
+downloader = dnf.repo.PackageDownloader()
 for pkg in ts.get_transaction_packages():
-    if base.transaction.transaction_item_action_is_inbound(pkg.get_action()):
+    if dnf.base.transaction.\
+       transaction_item_action_is_inbound(pkg.get_action()):
         downloader.add(pkg.get_package(), "download")
 
-print("Download started ...")
 downloader.download(True, True)
 print("Download finished.")
-
-                                            </code>
-                                        </pre>
-                                        <iframe src="http://localhost:6127" style="max-width: 100%; width: 100%; height: 40px;"></iframe>
-                                    </section>
-
-                                    <section data-auto-animate>
-                                        <h4>Interactive console</h4>
-                                        <div style="height: 600px;">
-                                            <iframe src="http://localhost:6128" style="width: 100%; height: 100%;"></iframe>
+                                                </code>
+                                            </pre>
+                                            <div style="max-width: 75%; width: 75%; max-height: 100%; height: 100%; overflow: hidden;">
+                                                <iframe class="fragment fade-up" data-id="term4" src="http://localhost:6126" style="max-width: 104%; width: 104%; max-height: 100%; height: 100%;"></iframe>
+                                            </div>
                                         </div>
                                     </section>
 
@@ -623,11 +630,10 @@ print("Download finished.")
                                     <section data-auto-animate>
                                         <h4>Deploying a simple DNF5 plugin</h4>
                                         <p>Implementation</p>
-                                        <pre style="font-size: 16px; width: 100%; max-height: 512px; height: 512px;">
-                                            <code class="hljs language-cpp" data-trim data-line-numbers="|9-12|15-17|19-21|23-25|">
+                                        <pre style="font-size: 16px; width: 80%;">
+                                            <code class="hljs language-cpp" data-trim data-line-numbers="|8-13|15-17|19-21|23-25">
 <script type="text/template">
 #include "example.hpp"
-
 #include <iostream>
 
 namespace dnf5 {
@@ -635,7 +641,8 @@ namespace dnf5 {
 using namespace libdnf::cli;
 
 void ExampleCommand::set_parent_command() {
-    auto parent_command = get_session().get_argument_parser().get_root_command();
+    auto argument_parser = get_session().get_argument_parser();
+    auto parent_command = argument_parser.get_root_command();
     auto this_command = get_argument_parser_command();
     parent_command->register_command(this_command);
 }
@@ -658,8 +665,8 @@ void ExampleCommand::run() {
                                     <section data-auto-animate>
                                         <h4>Deploying a simple DNF5 plugin</h4>
                                         <p>Adapter</p>
-                                        <pre style="font-size: 16px; width: 100%; max-height: 512px; height: 512px;">
-                                            <code class="hljs language-cpp" data-trim data-line-numbers="|9-13|41-44|61-65">
+                                        <pre style="font-size: 16px; width: 82%; height: 480px;">
+                                            <code class="hljs language-cpp" data-trim data-line-numbers="|9-21|23-41|58-62|78-85">
 <script type="text/template">
 #include "example.hpp"
 
@@ -669,25 +676,42 @@ using namespace dnf5;
 
 namespace {
 
-constexpr const char * PLUGIN_NAME{"example"};
-constexpr PluginVersion PLUGIN_VERSION{.major = 1, .minor = 0, .micro = 0};
+constexpr const char * PLUGIN_NAME {"example"};
 
-constexpr const char * attrs[]{"author.name", "author.email", "description", nullptr};
-constexpr const char * attrs_value[]{"Some Excited Guy", "sponsor@dnf5.com", "example"};
+constexpr PluginVersion PLUGIN_VERSION {
+    .major = 1, .minor = 0, .micro = 0
+};
+
+constexpr const char * attrs[] {
+    "author.name", "author.email", "description", nullptr
+};
+
+constexpr const char * attrs_value[] {
+    "Some Excited Guy", "sponsor@dnf5.com", "example"
+};
 
 class ExamplePlugin : public IPlugin {
 public:
     using IPlugin::IPlugin;
 
-    PluginAPIVersion get_api_version() const noexcept override { return PLUGIN_API_VERSION; }
+    PluginAPIVersion get_api_version() const noexcept override { 
+        return PLUGIN_API_VERSION; 
+    }
 
-    const char * get_name() const noexcept override { return PLUGIN_NAME; }
+    const char * get_name() const noexcept override { 
+        return PLUGIN_NAME; 
+    }
 
-    PluginVersion get_version() const noexcept override { return PLUGIN_VERSION; }
+    PluginVersion get_version() const noexcept override { 
+        return PLUGIN_VERSION; 
+    }
 
-    const char * const * get_attributes() const noexcept override { return attrs; }
+    const char * const * get_attributes() const noexcept override { 
+        return attrs; 
+    }
 
-    const char * get_attribute(const char * attribute) const noexcept override {
+    const char * get_attribute(const char * attribute) 
+        const noexcept override {
         for (size_t i = 0; attrs[i]; ++i) {
             if (std::strcmp(attribute, attrs[i]) == 0) {
                 return attrs_value[i];
@@ -721,10 +745,13 @@ PluginVersion dnf5_plugin_get_version(void) {
     return PLUGIN_VERSION;
 }
 
-IPlugin * dnf5_plugin_new_instance(ApplicationVersion version, Context & context) try {
-    return new ExamplePlugin(context);
-} catch(...) {
-    return nullptr;
+IPlugin * dnf5_plugin_new_instance(
+    ApplicationVersion version, Context & context) {
+    try {
+        return new ExamplePlugin(context);    
+    } catch(...) {
+        return nullptr;
+    }
 }
 
 void dnf5_plugin_delete_instance(IPlugin * plugin_object) {
@@ -736,8 +763,14 @@ void dnf5_plugin_delete_instance(IPlugin * plugin_object) {
                                     <section data-auto-animate>
                                         <h4>Deploying a simple DNF5 plugin</h4>
                                         <p>Build it & run it!</p>
-                                        <div style="height: 500px;">
-                                            <iframe src="http://localhost:6129" style="width: 100%; height: 100%;"></iframe>
+                                        <div style="height: 400px; overflow: hidden;">
+                                            <iframe data-id="term6" src="http://localhost:6126" style="max-width: 104%; width: 104%; height: 100%;"></iframe>
+                                        </div>
+                                    </section>
+                                    <section data-auto-animate>
+                                        <h4>Interactive console</h4>
+                                        <div style="height: 500px; overflow: hidden;">
+                                            <iframe data-id="term5" src="http://localhost:6126/" style="max-width: 104%; width: 104%; height: 100%;"></iframe>
                                         </div>
                                     </section>
                             </section>

@@ -3,8 +3,8 @@
     grid-template-areas:
         ".            .      .      .      packagekit ."
         ".            libdnf libdnf libdnf libdnf     ."
-        ".            libdnf libdnf libdnf libdnf     libdnf-plugins"
-        ".            libdnf libdnf libdnf libdnf     ."
+        ".            libdnf libdnf libdnf libdnf     libdnf-exts"
+        "dnf-exts     libdnf libdnf libdnf libdnf     ."
         "dnf-plugins  .      dnf    .      microdnf   .";
     grid-template-columns: 1fr 22px;
 }
@@ -45,6 +45,7 @@
     background-color: #e59728;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 #dnf {
@@ -63,19 +64,19 @@
     background-color: #a07cbc;
 }
 
+#dnf-exts {
+    grid-area: dnf-exts;
+    background-color: #32db9a;
+}
+
 #dnf-plugins {
     grid-area: dnf-plugins;
     background-color: #79db32;
 }
 
-#dnf5-plugins {
-    grid-area: dnf-plugins;
-    background-color: #f26e61;
-}
-
-#libdnf-plugins {
-    grid-area: libdnf-plugins;
-    background-color: #79db32;
+#libdnf-exts {
+    grid-area: libdnf-exts;
+    background-color: #32db9a;
 }
 
 .dnf-diagram-block {
