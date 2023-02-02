@@ -4,9 +4,13 @@
         linear-gradient(
             to bottom, 
             transparent 10%, 
-            #126a8f 50%, 
+            #126a8f 40%, 
             transparent 100%
         ) 1 100%;
+}
+
+.big-term {
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .reveal pre code {
