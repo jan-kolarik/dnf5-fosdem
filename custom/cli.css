@@ -1,16 +1,9 @@
-.dnf-term-div {
-    border-right: 3px solid;
-    border-image:
-        linear-gradient(
-            to bottom, 
-            transparent 10%, 
-            #126a8f 40%, 
-            transparent 100%
-        ) 1 100%;
+.terminal-split {
+    margin-right: 10px;
 }
 
-.big-term {
-    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+.terminal-shadow {
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
 }
 
 .reveal pre code {
