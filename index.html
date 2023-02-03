@@ -252,35 +252,29 @@
                                     </section>
 
                                     <section style="text-align: left;">
-                                        <h4>Complete restructure: API not compatible</h4>
+                                        <h3>libdnf5</h3>
                                         <ul>
-                                            <li class="fragment fade-up">API is safer and unified</li>
+                                            <li class="fragment fade-up">Complete restructure of API ➜ safer and unified</li>
+                                            <li class="fragment fade-up">Repositories are downloaded and loaded at the same time</li>
+                                            <li class="fragment fade-up">Filelists metadata not downloaded by default</li>
+                                            <li class="fragment fade-up">Faster in general</li>
                                             <li class="fragment fade-up">SWIG bindings for: <span class="fragment fade-up"><b>Python, </b></span><span class="fragment fade-up">Perl, Ruby, <span style="opacity: 20%;">Go</span></span></li>
-                                        </ul>
-                                        <br><br>
-                                        <h4 class="fragment fade-up">Performance</h4>
-                                        <ul>
-                                            <li class="fragment fade-up">Everything is faster</li>
-                                            <li class="fragment fade-up">Repos download and loading at the same time (also no filelists)</li>
-                                        </ul>
-                                        <br><br>
-                                        <h4 class="fragment fade-up">Fewer dependencies</h4>
-                                        <ul>
-                                            <li class="fragment fade-up">Python is not required</li>
                                         </ul>
                                     </section>
 
                                     <section style="text-align: left;">
-                                        <h4>DNF5 daemon</h4>
+                                        <h3>DNF5 (CLI)</h3>
+                                        <ul>
+                                            <li class="fragment fade-up">Python is not required</li>
+                                            <li class="fragment fade-up">Commands are mostly the same</li>
+                                            <li class="fragment fade-up">Outputs of commands did change</li>
+                                            <li class="fragment fade-up">DNF CI tests are the same for DNF5</li>
+                                        </ul>
+                                        <br><br>
+                                        <h3 class="fragment fade-up">DNF5 daemon</h3>
                                         <ul>
                                             <li class="fragment fade-up">Accessible by D-Bus</li>
                                             <li class="fragment fade-up">Same functionality as dnf5</li>
-                                        </ul>
-                                        <br><br>
-                                        <h4 class="fragment fade-up">DNF5 CLI commands are mostly the same</h4>
-                                        <ul>
-                                            <li class="fragment fade-up">DNF CI tests are the same for DNF5</li>
-                                            <li class="fragment fade-up">Outputs of commands did change</li>
                                         </ul>
                                     </section>
 
